@@ -24,7 +24,7 @@ public class UserHandler {
 
     public Mono<ServerResponse> add(ServerRequest serverRequest) {
         Mono<User> user = serverRequest.bodyToMono(User.class);
-        return ServerResponse.status(HttpStatus.OK)
+        return ServerResponse.status(HttpStatus.CREATED)
                 .body(BodyInserters.fromPublisher(
                         user.flatMap(userRepository::save), User.class));
     }
