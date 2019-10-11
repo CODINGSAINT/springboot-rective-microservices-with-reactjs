@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="665c659f-a993-4e5b-a7e8-af34d6a83053" name="Default Changelist" comment="Reactive User API">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codingsaint/learning/microservices/reactive/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codingsaint/learning/microservices/reactive/userservice/UserServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codingsaint/learning/microservices/reactive/userservice/handler/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codingsaint/learning/microservices/reactive/userservice/handler/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/codingsaint/learning/microservices/reactive/userservice/UserServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/codingsaint/learning/microservices/reactive/userservice/UserServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="665c659f-a993-4e5b-a7e8-af34d6a83053" name="Default Changelist" comment="Reactive User API" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +151,7 @@
       <workItem from="1569549193534" duration="1470000" />
       <workItem from="1569591717344" duration="1616000" />
       <workItem from="1570273968858" duration="6961000" />
-      <workItem from="1570414035972" duration="4212000" />
+      <workItem from="1570414035972" duration="4960000" />
     </task>
     <task id="LOCAL-00001" summary="Reactive User API">
       <created>1569550501920</created>
