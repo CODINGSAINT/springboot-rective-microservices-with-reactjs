@@ -1,0 +1,5 @@
+com/codingsaint/learning/microservices/reactive/userservice/repository/UserRepository.class
+com/codingsaint/learning/microservices/reactive/userservice/UserServiceApplication.class
+com/codingsaint/learning/microservices/reactive/userservice/handler/UserHandler.class
+com/codingsaint/learning/microservices/reactive/userservice/model/User.class
+com/codingsaint/learning/microservices/reactive/userservice/routes/UserRouteConfiguration.class

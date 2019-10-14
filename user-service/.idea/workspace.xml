@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="665c659f-a993-4e5b-a7e8-af34d6a83053" name="Default Changelist" comment="Reactive User API" />
+    <list default="true" id="665c659f-a993-4e5b-a7e8-af34d6a83053" name="Default Changelist" comment="Reactive User API">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceApplicationTests">
+  <component name="RunManager" selected="JUnit.All in user-service">
+    <configuration name="All in user-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-service" />
       <extension name="coverage">
@@ -127,6 +137,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in user-service" />
         <item itemvalue="JUnit.UserServiceApplicationTests" />
         <item itemvalue="JUnit.UserServiceApplicationTests.getAllUsersTests" />
         <item itemvalue="JUnit.UserServiceApplicationTests.addUserTest" />
@@ -152,6 +163,9 @@
       <workItem from="1569591717344" duration="1616000" />
       <workItem from="1570273968858" duration="6961000" />
       <workItem from="1570414035972" duration="4960000" />
+      <workItem from="1570764326528" duration="601000" />
+      <workItem from="1570939737285" duration="12000" />
+      <workItem from="1570948711687" duration="281000" />
     </task>
     <task id="LOCAL-00001" summary="Reactive User API">
       <created>1569550501920</created>
