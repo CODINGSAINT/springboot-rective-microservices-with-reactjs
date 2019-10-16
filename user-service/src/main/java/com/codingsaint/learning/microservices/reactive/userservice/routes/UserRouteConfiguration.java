@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
@@ -16,6 +17,7 @@ import reactor.core.publisher.Mono;
 public class UserRouteConfiguration {
     private final UserRepository userRepository;
     private final UserHandler userHandler;
+    private final WebClient webClient;
 
     @Bean
     public RouterFunction userRoutes() {
@@ -24,7 +26,11 @@ public class UserRouteConfiguration {
                 .andRoute(RequestPredicates.POST("/user"), userHandler::add)
                 .andRoute(RequestPredicates.PUT("/user"), userHandler::update)
                 .andRoute(RequestPredicates.GET("/user/{id}"), userHandler::get)
-                .andRoute(RequestPredicates.DELETE("/user/{id}"), userHandler::delete);
+                .andRoute(RequestPredicates.DELETE("/user/{id}"), userHandler::delete)
+                /*.andRoute(RequestPredicates.GET("user/{id}/tasks"),serverRequest -> {
+                    webClient.get()
+                            .uri("lb://task-service/tasks/user/"+serverRequest.pathVariable("id"))
+                })*/;
     }
 
 }
