@@ -22,7 +22,10 @@ public class TaskRoutesConfiguration {
                 .andRoute(RequestPredicates.GET("/todos/{id}"), todoHandler::get)
                 .andRoute(RequestPredicates.POST("/todos"), todoHandler::add)
                 .andRoute(RequestPredicates.PUT("/todos"), todoHandler::update)
-                .andRoute(RequestPredicates.DELETE("/todos/{id}"), todoHandler::delete);
+                .andRoute(RequestPredicates.DELETE("/todos/{id}"), todoHandler::delete)
+                .andRoute(RequestPredicates.GET("/todos/user/{userId}"), todoHandler::findByUserId)
+
+                ;
     }
 
 }

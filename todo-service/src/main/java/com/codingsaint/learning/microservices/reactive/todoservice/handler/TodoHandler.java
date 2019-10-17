@@ -49,4 +49,10 @@ public class TodoHandler {
                 .build(todoRepository.deleteById(serverRequest.pathVariable("id"))
                 );
     }
+    public Mono<ServerResponse> findByUserId(ServerRequest serverRequest){
+        return ServerResponse.ok()
+                .body(BodyInserters.fromPublisher(
+                        todoRepository.findByUserId(serverRequest.pathVariable("userId")), Todo.class
+                ));
+    }
 }
