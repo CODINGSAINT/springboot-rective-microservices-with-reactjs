@@ -4,6 +4,7 @@ import com.codingsaint.learning.microservices.reactive.userservice.model.User;
 import com.codingsaint.learning.microservices.reactive.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,14 @@ public class UserHandler {
     private final UserRepository userRepository;
     private final WebClient webClient;
     private final DiscoveryClient discoveryClient;
+    private final ReactiveCircuitBreakerFactory reactiveCircuitBreakerFactory;
 
+    private static Mono<? extends ServerResponse> todosResponse(ClientResponse clientResponse) {
+        return ServerResponse.status(clientResponse.statusCode())
+                .headers(c -> clientResponse.headers().asHttpHeaders().forEach((name, value) ->
+                        c.put(name, value)))
+                .body(clientResponse.bodyToFlux(DataBuffer.class), DataBuffer.class);
+    }
 
 
     public Mono<ServerResponse> getAll(ServerRequest serverRequest) {
@@ -64,14 +72,13 @@ public class UserHandler {
         List<ServiceInstance> instances = discoveryClient.getInstances("todo-service");
         ServiceInstance instance = instances.stream().findAny()
                 .orElseThrow(() -> new IllegalStateException("No proxy instance available"));
-        return  webClient.get()
-                .uri( instance.getUri().toString()+"/todos/user/"+serverRequest.pathVariable("id"))
-                .exchange().flatMap((ClientResponse clientResponse)->{
-                    return ServerResponse.status(clientResponse.statusCode())
-                            .headers(c -> clientResponse.headers().asHttpHeaders().forEach((name, value) ->
-                                    c.put(name, value)))
-                            .body(clientResponse.bodyToFlux(DataBuffer.class), DataBuffer.class);
-                });
 
+        return
+               reactiveCircuitBreakerFactory.create("userTodos").run(webClient.get()
+                       .uri( instance.getUri().toString()+"/todos/user/"+serverRequest.pathVariable("id"))
+                       .exchange().flatMap(UserHandler::todosResponse),throwable -> noTaskFound());
+    }
+    private Mono<ServerResponse> noTaskFound(){
+    return ServerResponse.noContent().build();
     }
 }
