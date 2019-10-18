@@ -18,7 +18,7 @@
       <module name="service-discovery" target="1.8" />
       <module name="springboot-rective-microservices-with-reactjs" target="1.5" />
       <module name="todo-service" target="1.8" />
-      <module name="user-service" target="1.8" />
+      <module name="user-service" target="12" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

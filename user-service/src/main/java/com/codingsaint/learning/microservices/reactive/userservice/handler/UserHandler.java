@@ -69,16 +69,21 @@ public class UserHandler {
     }
     public Mono<ServerResponse> userTasks(ServerRequest serverRequest){
         System.out.println(serverRequest.pathVariable("id"));
-        List<ServiceInstance> instances = discoveryClient.getInstances("todo-service");
+
+        /*List<ServiceInstance> instances = discoveryClient.getInstances("todo-service");
         ServiceInstance instance = instances.stream().findAny()
-                .orElseThrow(() -> new IllegalStateException("No proxy instance available"));
+                .orElseThrow(() -> new IllegalStateException("No proxy instance available"));*/
 
         return
-               reactiveCircuitBreakerFactory.create("userTodos").run(webClient.get()
-                       .uri( instance.getUri().toString()+"/todos/user/"+serverRequest.pathVariable("id"))
-                       .exchange().flatMap(UserHandler::todosResponse),throwable -> noTaskFound());
+                reactiveCircuitBreakerFactory.create("userTodos").run(
+                        webClient.get()
+                        .uri("http://localhost:8080/todo-service/"
+                                + "/todos/user/" + serverRequest.pathVariable("id"))
+                        .exchange().flatMap(UserHandler::todosResponse),
+                        throwable -> noTaskFound());
     }
     private Mono<ServerResponse> noTaskFound(){
-    return ServerResponse.noContent().build();
+        System.out.println("Some Issue ");
+    return ServerResponse.ok().body(BodyInserters.fromValue("No Todos Found, Create New"));
     }
 }
